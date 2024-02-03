@@ -1,30 +1,30 @@
-class Modulo7:
-    def __init__(self, lista1):
-        self.lista = lista1
+class Herramientas:
+    def __init__(self, lista_numeros):
+        self.lista = lista_numeros
 
     def verifica_primo(self):
         for i in self.lista:
-            if (self.funcion_primo(i)):
+            if (self.__verifica_primo(i)):
                 print('El elemento', i, 'SI es un numero primo')
             else:
                 print('El elemento', i, 'NO es un numero primo')
 
     def conversion_grados(self, origen, destino):
         for i in self.lista:
-            print(i, 'grados', origen, 'son', self.temp(i, origen, destino),'grados',destino)
+            print(i, 'grados', origen, 'son', self.__conversion_grados(i, origen, destino),'grados',destino)
     
     def factorial(self):
         for i in self.lista:
             print('El factorial de ', i, 'es', self.__factorial(i))
-        
-    def funcion_primo(self, x):
-        primo = True
-        for i in range (2,x):
-            if x % i == 0:
-                primo = False
+
+    def __verifica_primo(self, nro):
+        es_primo = True
+        for i in range(2, nro):
+            if nro % i == 0:
+                es_primo = False
                 break
-        return primo
-        
+        return es_primo
+
     def valor_modal(self, menor):
         lista_unicos = []
         lista_repeticiones = []
@@ -48,8 +48,8 @@ class Modulo7:
                 moda = lista_unicos[i]
                 maximo = lista_repeticiones[i]
         return moda, maximo
-    
-    def temp(self,valor,origen,destino):
+
+    def __conversion_grados(self, valor, origen, destino):
         valor_destino = None
         if (origen == 'celsius'):
             if (destino == 'celsius'):
@@ -81,16 +81,12 @@ class Modulo7:
         else:
             print('Parámetro de Origen incorrecto')
         return valor_destino
-    
-    def __factorial(self,x):
-        resultado = x
-        if x % 1 == 0:
-            if x > 0:
-                while (x > 2):
-                    x = x - 1
-                    resultado = resultado * x
-                print("El factorial es " + str(resultado))
-            else:
-                print("El numero no es mayor a cero")
-        else:
-            print("El numero no es entero")
+
+    def __factorial(self, numero):
+        if(type(numero) != int):
+            return 'El numero debe ser un entero'
+        if(numero < 0):
+            return 'El numero debe ser pisitivo'
+        if (numero > 1):
+            numero = numero * self.__factorial(numero - 1)
+        return numero
