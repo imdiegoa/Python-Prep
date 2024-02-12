@@ -1,5 +1,7 @@
 import sys
-# Comprobación de seguridad, ejecutar sólo si se recibe 3 argumentos
+
+# Se ingresa en la terminal la ubicacion del archivo : py M10_manejodearchivos\\clase09_ej1.py Uno Dos Tres
+
 if len(sys.argv) == 4:
     print("El primer parámetro es:",sys.argv[1])
     print("El segundo parámetro es:",sys.argv[2])

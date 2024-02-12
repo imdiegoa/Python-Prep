@@ -10,7 +10,7 @@ class PruebaHenryChallenge(unittest.TestCase):
       self.assertEqual(valor_test, valor_esperado)
 
     def test_Factorial_02(self):
-      valor_test = ch.Factorial(1)
+      valor_test = ch.Factorial(1) 
       valor_esperado = 1
       self.assertEqual(valor_test, valor_esperado)
 
